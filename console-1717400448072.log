@@ -1,0 +1,26 @@
+var arr = [10,20,30];
+undefined
+arr = null;
+null
+arr.push(100);
+VM111:1 Uncaught TypeError: Cannot read properties of null (reading 'push')
+    at <anonymous>:1:5
+(anonymous) @ VM111:1
+arr;
+null
+typeof arr;
+'object'
+//undefined vs null
+undefined
+undefined == null;
+true
+typeof undefined;
+'undefined'
+typeof null;
+'object'
+var a = 10;
+undefined
+var arr = [10,20,30];
+undefined
+typeof a;
+'number'

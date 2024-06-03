@@ -1,0 +1,217 @@
+var a;
+undefined
+typeof a;
+'undefined'
+typeof (a);
+'undefined'
+typeof (10 + 2 + "Amit")
+'string'
+typeof ((10 + 2) + "Amit")
+'string'
+a = 100;
+100
+typeof a;
+'number'
+a=1;
+1
+typeof a;
+'number'
+a=4435645645645645645;
+4435645645645646000
+typeof a;
+'number'
+a=88.22;
+88.22
+a=64565464357459867895476984576894579687547645986;
+6.456546435745987e+46
+a=Number.MAX_SAFE_INTEGER;
+9007199254740991
+++a;
+9007199254740992
+++a;
+9007199254740992
+++a;
+9007199254740992
+++a;
+9007199254740992
+a=9007199254740992n;
+9007199254740992n
+typeof a;
+'bigint'
+a = BigInt("563454354353442343243543645654645");
+563454354353442343243543645654645n
+a;
+563454354353442343243543645654645n
+a  = a + 4355345435n;
+563454354353442343243548001000080n
+a = a + 2333;
+VM598:1 Uncaught TypeError: Cannot mix BigInt and other types, use explicit conversions
+    at <anonymous>:1:7
+(anonymous) @ VM598:1
+var a = 10;
+undefined
+typeof a;
+'number'
+var b = a;
+undefined
+b;
+10
+b + 5;
+15
+b;
+10
+b  = b + 5;
+15
+b = 023;
+19
+b=0x555;
+1365
+b = b / 0 ;
+Infinity
+b;
+Infinity
+typeof b;
+'number'
+isFinite(b);
+false
+a = 10 - "Amit";
+NaN
+isNaN(a);
+true
+a = "100";
+'100'
+b = "10";
+'10'
+a + b;
+'10010'
+parseInt(a) + parseInt(b);
+110
+a = undefined;
+undefined
+a.toUpperCase();
+VM1181:1 Uncaught TypeError: Cannot read properties of undefined (reading 'toUpperCase')
+    at <anonymous>:1:3
+(anonymous) @ VM1181:1
+a="Amit";
+'Amit'
+typeof a;
+'string'
+a='Amit';
+'Amit'
+typeof a;
+'string'
+a="Let's do it ";
+"Let's do it "
+a=`ghkjfdhkfdkgjhfdkghfdjkghdfkghfkdgkhjd
+hgkjdfhghkdfjghkjfd
+hgkdjfghfd`;
+'ghkjfdhkfdkgjhfdkghfdjkghdfkghfkdgkhjd\nhgkjdfhghkdfjghkjfd\nhgkdjfghfd'
+a;
+'ghkjfdhkfdkgjhfdkghfdjkghdfkghfkdgkhjd\nhgkjdfhghkdfjghkjfd\nhgkdjfghfd'
+console.log(a);
+VM1380:1 ghkjfdhkfdkgjhfdkghfdjkghdfkghfkdgkhjd
+hgkjdfhghkdfjghkjfd
+hgkdjfghfd
+undefined
+typeof console;
+'object'
+typeof console.log;
+'function'
+var x = 10;
+undefined
+var y = 20;
+undefined
+var z = x + y;
+undefined
+"X is "+x"+ Y is "+y + " z is " +z;
+VM1687:1 Uncaught SyntaxError: Unexpected string
+"X is "+x+" Y is "+y + " z is " +z;
+'X is 10 Y is 20 z is 30'
+`X is ${x} Y is ${y} Z is ${z}`;
+'X is 10 Y is 20 Z is 30'
+var att = true;
+undefined
+typeof att;
+'boolean'
+10 + true;
+11
+true + true;
+2
+Symbol()
+Symbol()
+Symbol() == Symbol()
+false
+typeof Symbol;
+'function'
+typeof Symbol();
+'symbol'
+var arr = [10,20,30];
+undefined
+typeof arr;
+'object'
+arr.push(444);
+4
+arr.length;
+4
+var arr2 = arr;
+undefined
+arr2[0] = 88888;
+88888
+arr2;
+(4) [88888, 20, 30, 444]
+arr;
+(4) [88888, 20, 30, 444]
+arr == arr2;
+true
+var arr3 = [...arr];
+undefined
+arr3;
+(4) [88888, 20, 30, 444]
+arr3 == arr;
+false
+var phones = [1111,2222,4444,56666,66774,3333,12222];
+undefined
+var obj = {"ram":1111, "shyam":2222};
+undefined
+typeof obj;
+'object'
+typeof phones;
+'object'
+phones instanceof Array;
+true
+typeof Array;
+'function'
+obj instanceof Object;
+true
+obj instanceof Array;
+false
+typeof Object;
+'function'
+phones instanceof Array;
+true
+phones instanceof Object;
+true
+obj instanceof Object;
+true
+obj instanceof Array;
+false
+function show(){
+    console.log("I am Show ");
+}
+undefined
+typeof show;
+'function'
+var e = show;
+undefined
+typeof e;
+'function'
+e();
+VM3084:2 I am Show 
+undefined
+e = show();
+VM3084:2 I am Show 
+undefined
+e;
+undefined
+typeof e;
+'undefined'

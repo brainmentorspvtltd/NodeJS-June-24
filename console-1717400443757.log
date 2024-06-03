@@ -1,0 +1,12 @@
+class A{
+    
+}
+undefined
+typeof A;
+'function'
+class B extends A{
+    
+}
+undefined
+typeof B;
+'function'
