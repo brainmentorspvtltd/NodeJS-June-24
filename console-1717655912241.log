@@ -1,0 +1,107 @@
+// Functions in JS
+undefined
+function show(){
+console.log("I am show ");
+}
+undefined
+typeof show;
+'function'
+show();
+VM112:2 I am show 
+undefined
+function show(){
+console.log("I am show ");
+    return 10;
+}
+undefined
+show();
+VM176:2 I am show 
+10
+show(10,20);
+VM176:2 I am show 
+10
+show(10,20,"amit", true ,[10,20]);
+VM176:2 I am show 
+10
+function test(){
+    return 1000;
+}
+undefined
+show(10,20, test, test(), true, [10,20]);
+VM176:2 I am show 
+10
+console.dir(show);
+VM668:1 ƒ show()arguments: nullcaller: nulllength: 0name: "show"prototype: {}[[FunctionLocation]]: VM176:1[[Prototype]]: ƒ ()[[Scopes]]: Scopes[1]
+undefined
+function show(){
+console.log("I am show ", arguments);
+    return 10;
+}
+undefined
+show(10,20, test, test(), true, [10,20]);
+VM733:2 I am show  Arguments(6) [10, 20, ƒ, 1000, true, Array(2), callee: ƒ, Symbol(Symbol.iterator): ƒ]
+10
+function show(){
+console.log("I am show ", arguments.length);
+    return 10;
+}
+undefined
+show(10,20, test, test(), true, [10,20]);
+VM787:2 I am show  6
+10
+function show(){
+console.log("I am show ", arguments.length);
+    return 10,20,30;
+}
+undefined
+show(10,20,30,40,50,60);
+VM821:2 I am show  6
+30
+function show(){
+console.log("I am show ", arguments.length);
+    return [10,20,30];
+}
+undefined
+show();
+VM887:2 I am show  0
+(3) [10, 20, 30]
+function show(){
+//console.log("I am show ", arguments.length);
+    for(var i = 0; i<arguments.length; i++){
+        console.log(arguments[i]);
+    }
+    return [10,20,30];
+}
+undefined
+show(10,20,"Amit",true,test,[90,100,"Ram", true]);
+VM1015:4 10
+VM1015:4 20
+VM1015:4 Amit
+VM1015:4 true
+VM1015:4 ƒ test(){
+    return 1000;
+}
+VM1015:4 (4) [90, 100, 'Ram', true]
+(3) [10, 20, 30]
+function show(){
+//console.log("I am show ", arguments.length);
+    console.log(typeof arguments);
+    console.log(arguments instanceof Array);
+    for(var i = 0; i<arguments.length; i++){
+        console.log(arguments[i]);
+    }
+    return [10,20,30];
+}
+undefined
+show(10,20,"Amit",true,test,[90,100,"Ram", true]);
+VM1336:3 object
+VM1336:4 false
+VM1336:6 10
+VM1336:6 20
+VM1336:6 Amit
+VM1336:6 true
+VM1336:6 ƒ test(){
+    return 1000;
+}
+VM1336:6 (4) [90, 100, 'Ram', true]
+(3) [10, 20, 30]

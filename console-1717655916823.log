@@ -1,0 +1,14 @@
+var x= 10;
+undefined
+x= "Amit";
+'Amit'
+x = true;
+true
+typeof x;
+'boolean'
+//boolean x = true;
+undefined
+x = {id:1001, name:'Amit'};
+{id: 1001, name: 'Amit'}
+typeof x;
+'object'

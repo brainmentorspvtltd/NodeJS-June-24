@@ -1,0 +1,82 @@
+// value types and reference types
+undefined
+var x = 10;
+undefined
+var e = [10,20,30];
+undefined
+typeof e;
+'object'
+e instanceof Array;
+true
+typeof Array;
+'function'
+e.push(1000);
+4
+e;
+(4) [10, 20, 30, 1000]
+e;
+(4) [10, 20, 30, 1000]
+x;
+10
+x.toString();
+'10'
+x;
+10
+e;
+(4) [10, 20, 30, 1000]
+e.pop();
+1000
+e;
+(3) [10, 20, 30]
+x.toLocaleString('hi');
+'10'
+x = 1000000;
+1000000
+x.toLocaleString('hi');
+'10,00,000'
+x;
+1000000
+x.toLocaleString('en');
+'1,000,000'
+x;
+1000000
+typeof x;
+'number'
+x;
+1000000
+// Wrapper Type
+undefined
+var y = new Number(10);
+undefined
+y;
+Number {10}
+typeof y;
+'object'
+y.toString();
+'10'
+y;
+Number {10}
+x;
+1000000
+typeof x;
+'number'
+x.toString();
+'1000000'
+x;
+1000000
+typeof x;
+'number'
+var a = "Amit";
+undefined
+typeof a;
+'string'
+a.toUpperCase();
+'AMIT'
+a;
+'Amit'
+var b = new String("Amit");
+undefined
+b;
+String {'Amit'}
+typeof b;
+'object'

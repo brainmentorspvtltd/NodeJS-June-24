@@ -1,0 +1,40 @@
+// undefined vs null
+undefined
+var x ;
+undefined
+var obj = {id:1001, name:'Amit'};
+undefined
+obj.id;
+1001
+obj.name;
+'Amit'
+obj = null;
+null
+obj.id;
+VM223:1 Uncaught TypeError: Cannot read properties of null (reading 'id')
+    at <anonymous>:1:5
+(anonymous) @ VM223:1
+typeof obj;
+'object'
+x;
+undefined
+typeof x;
+'undefined'
+undefined == null;
+true
+typeof x == typeof obj;
+false
+x==obj;
+true
+10 == "10"
+true
+10 === "10";
+false
+undefined == null;
+true
+undefined === null;
+false
+10 + "10"
+'1010'
+10 + null;
+10
