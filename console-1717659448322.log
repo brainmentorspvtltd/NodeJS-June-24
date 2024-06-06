@@ -1,0 +1,147 @@
+function add(){
+    var sum = 0;
+    for(var i = 0 ; i<arguments.length; i++){
+        sum = sum + arguments[i]);
+    }
+    return sum;
+}
+VM122:4 Uncaught SyntaxError: Unexpected token ')'
+function add(){
+    var sum = 0;
+    for(var i = 0 ; i<arguments.length; i++){
+        sum = sum + arguments[i];
+    }
+    return sum;
+}
+undefined
+add();
+0
+add(1,2);
+3
+add(1,2,3,4,5);
+15
+add(1,"2",3,4,5);
+'12345'
+function add(){
+    var sum = 0;
+    for(var i = 0 ; i<arguments.length; i++){
+        sum = sum + parseInt(arguments[i]);
+    }
+    return sum;
+}
+undefined
+add(1,"2",3,4,5);
+15
+add(1,"two",3,4,5);
+NaN
+function add(){
+    var sum = 0;
+    for(var i = 0 ; i<arguments.length; i++){
+        sum = sum + isNaN(parseInt(arguments[i]))?0:parseInt(arguments[i]);
+    }
+    return sum;
+}
+undefined
+add(1,"two",3,4,5);
+5
+function add(){
+    var sum = 0;
+    for(var i = 0 ; i<arguments.length; i++){
+        sum = sum + (isNaN(parseInt(arguments[i]))?0:parseInt(arguments[i]));
+    }
+    return sum;
+}
+undefined
+add(1,"two",3,4,5);
+13
+add(1,"two",3,"4",5);
+13
+function test1(){
+    return 2;
+}
+undefined
+function test2(){
+    return "2";
+}
+undefined
+add(1,"two",test1,"4",test2,5);
+10
+function add(){
+    var sum = 0;
+    for(var i = 0 ; i<arguments.length; i++){
+        if(typeof arguments[i] ==='function'){
+           arguments[i] =  arguments[i]();
+        }
+        sum = sum + (isNaN(parseInt(arguments[i]))?0:parseInt(arguments[i]));
+    }
+    return sum;
+}
+undefined
+add(1,"two",test1,"4",test2,5);
+14
+add(1,"two",test1,"4",test2,5, true);
+14
+parseInt(true);
+NaN
+function add(){
+    var sum = 0;
+    for(var i = 0 ; i<arguments.length; i++){
+        if(typeof arguments[i]==='boolean'){
+            arguments[i] = arguments[i]?1:0;
+        }
+        else if(typeof arguments[i] ==='function'){
+           arguments[i] =  arguments[i]();
+        }
+        sum = sum + (isNaN(parseInt(arguments[i]))?0:parseInt(arguments[i]));
+    }
+    return sum;
+}
+undefined
+add(1,"two",test1,"4",test2,5, true);
+15
+add(1,"two",test1,"4",test2,5, false);
+14
+function add(){
+    var sum = 0;
+    for(var i = 0 ; i<arguments.length; i++){
+        if(typeof arguments[i]==='boolean'){
+            arguments[i] = arguments[i]?1:0;
+        }
+        else if(typeof arguments[i] ==='function'){
+           arguments[i] =  arguments[i]();
+        }
+        else if (arguments[i] instanceof Array){
+            for(var j = 0; j<arguments[i].length; j++){
+                 sum = sum + (isNaN(parseInt(arguments[i][j]))?0:parseInt(arguments[i][j]));
+            }
+            continue;
+        }
+        sum = sum + (isNaN(parseInt(arguments[i]))?0:parseInt(arguments[i]));
+    }
+    return sum;
+}
+undefined
+add(1,"two",test1,"4",test2,5, false,[1,2]);
+17
+add(1,"two",test1,"4",test2,5, false,[1,2,"3"]);
+20
+function jQuery(){
+    console.log('JQuery ');
+}
+undefined
+var $ = jQuery;
+undefined
+typeof $;
+'function'
+$;
+ƒ jQuery(){
+    console.log('JQuery ');
+}
+$(this);
+VM1092:2 JQuery 
+undefined
+$("p");
+VM1092:2 JQuery 
+undefined
+parseInt("10");
+10
