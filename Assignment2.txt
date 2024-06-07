@@ -1,0 +1,19 @@
+Online Pizza Application
+
+Function order(){
+// Array of Products
+ Products (Cheese Pizza, Veg Pizza, Dessert)
+}
+function payment(order){
+	order Details
+	return paymentWithGst
+}
+
+orderPaymentDetails  = payment(order)
+
+orderPaymentDetails —Orders, Payment , GST
+
+
+1. Function Pass as an Argument
+2. Function Nested Function
+3. Function Return Function
