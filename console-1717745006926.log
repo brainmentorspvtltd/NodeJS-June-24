@@ -1,0 +1,212 @@
+ function add(){
+     console.log(arguments);
+ }
+undefined
+console.dir(add);
+VM182:1 ƒ add()arguments: nullcaller: nulllength: 0name: "add"prototype: {}[[FunctionLocation]]: VM101:1[[Prototype]]: ƒ ()[[Scopes]]: Scopes[1]
+undefined
+ function add(...arg){
+     console.log(arg);
+     console.log(arg instanceof Array);
+ }
+undefined
+add(1,2,3,4,5);
+VM274:2 (5) [1, 2, 3, 4, 5]
+VM274:3 true
+undefined
+ function add(...arg){
+     console.log(arg);
+     console.log(arg instanceof Array);
+     for(var i = 0; i<arg.length; i++){
+         console.log(arg[i]);
+     }
+ }
+
+
+
+undefined
+add(1,2,3,4);
+VM416:2 (4) [1, 2, 3, 4]
+VM416:3 true
+VM416:5 1
+VM416:5 2
+VM416:5 3
+VM416:5 4
+undefined
+ function add(...arg){
+     console.log(arg);
+     console.log(arg instanceof Array);
+     for(var i of arg){
+         console.log(i);
+     }
+     /*for(var i = 0; i<arg.length; i++){
+         console.log(arg[i]);
+     }*/
+ }
+
+
+
+undefined
+add(1,2,3,4);
+VM516:2 (4) [1, 2, 3, 4]
+VM516:3 true
+VM516:5 1
+VM516:5 2
+VM516:5 3
+VM516:5 4
+undefined
+add();
+VM516:2 []
+VM516:3 true
+undefined
+ function add(...arg, ...arg2){
+     console.log(arg);
+     console.log(arg instanceof Array);
+     for(var i of arg){
+         console.log(i);
+     }
+     /*for(var i = 0; i<arg.length; i++){
+         console.log(arg[i]);
+     }*/
+ }
+
+
+
+VM552:1 Uncaught SyntaxError: Rest parameter must be last formal parameter
+ function add(x,y,...arg ){
+     console.log('X is ', x, 'Y is ' , y, ' Arg is ', arg); 
+     console.log(arg);
+     console.log(arg instanceof Array);
+     for(var i of arg){
+         console.log(i);
+     }
+     /*for(var i = 0; i<arg.length; i++){
+         console.log(arg[i]);
+     }*/
+ }
+
+
+
+undefined
+add(10,20,30,40,50);
+VM709:2 X is  10 Y is  20  Arg is  (3) [30, 40, 50]
+VM709:3 (3) [30, 40, 50]
+VM709:4 true
+VM709:6 30
+VM709:6 40
+VM709:6 50
+undefined
+add(10,20,30,40,50);
+VM709:2 X is  10 Y is  20  Arg is  (3) [30, 40, 50]
+VM709:3 (3) [30, 40, 50]
+VM709:4 true
+VM709:6 30
+VM709:6 40
+VM709:6 50
+undefined
+ function add(x,y ){
+     console.log('X is ', x, 'Y is ' , y, ' Arg is ', arguments); 
+     // console.log(arg);
+     // console.log(arg instanceof Array);
+     // for(var i of arg){
+     //     console.log(i);
+     // }
+     /*for(var i = 0; i<arg.length; i++){
+         console.log(arg[i]);
+     }*/
+ }
+
+
+
+undefined
+add(10,20,30,40,50);
+VM880:2 X is  10 Y is  20  Arg is  Arguments(5) [10, 20, 30, 40, 50, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+undefined
+function add(){
+    console.log(arguments);
+}
+undefined
+add(10,20,30,40);
+VM1036:2 Arguments(4) [10, 20, 30, 40, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+undefined
+function add(...a){
+    //console.log(arguments);
+    for(var i = 0 ; i<a.length; i++){
+        console.log(i);
+    }
+}
+
+
+
+
+
+undefined
+add(1,2);
+VM1183:4 0
+VM1183:4 1
+undefined
+function add(...a){
+    //console.log(arguments);
+    a.push(1000);
+    for(var i = 0 ; i<a.length; i++){
+        console.log(i);
+    }
+}
+
+
+
+
+
+undefined
+add(10,20);
+VM1250:5 0
+VM1250:5 1
+VM1250:5 2
+undefined
+function add(...a){
+    //console.log(arguments);
+    a.push(1000);
+    for(var i = 0 ; i<a.length; i++){
+        console.log(a[i]);
+    }
+}
+
+
+
+
+
+undefined
+add(10,20);
+VM1304:5 10
+VM1304:5 20
+VM1304:5 1000
+undefined
+function add(...a){
+    //console.log(arguments);
+    a[0] = 999;
+    for(var i = 0 ; i<a.length; i++){
+        console.log(a[i]);
+    }
+}
+
+
+
+
+
+undefined
+add(1,2);
+VM1328:5 999
+VM1328:5 2
+undefined
+var x = 10;
+undefined
+typeof x;
+'number'
+x = null;
+null
+typeof x;
+'object'
+x= 10;
+10
+x = undefined;
+undefined

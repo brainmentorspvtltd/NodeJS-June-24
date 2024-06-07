@@ -1,0 +1,29 @@
+function add(){
+    console.log('Add ');
+}
+undefined
+console.dir(add);
+VM114:1 ƒ add()arguments: nullcaller: nulllength: 0name: "add"prototype: {}[[FunctionLocation]]: VM69:1[[Prototype]]: ƒ ()[[Scopes]]: Scopes[1]
+undefined
+function add(){
+    console.log('Add ');
+    var sum = 0;
+    for(var i = 0 ; i<arguments.length ; i++){
+        sum = sum + arguments[i];
+    }
+    return sum;
+}
+undefined
+add();
+VM248:2 Add 
+0
+add(1,2,3,4,5);
+VM248:2 Add 
+15
+console.dir(add);
+VM380:1 ƒ add()arguments: nullcaller: nulllength: 0name: "add"prototype: {}[[FunctionLocation]]: VM248:1[[Prototype]]: ƒ ()apply: ƒ apply()arguments: [Exception: TypeError: 'caller', 'callee', and 'arguments' properties may not be accessed on strict mode functions or the arguments objects for calls to them
+    at Function.invokeGetter (<anonymous>:3:28)]bind: ƒ bind()call: ƒ call()caller: (...)constructor: ƒ Function()length: 0name: ""toString: ƒ toString()Symbol(Symbol.hasInstance): ƒ [Symbol.hasInstance]()get arguments: ƒ ()set arguments: ƒ ()get caller: ƒ ()set caller: ƒ ()[[FunctionLocation]]: [[Prototype]]: Object[[Scopes]]: Scopes[0][[Scopes]]: Scopes[1]
+undefined
+add(1,2,3,4,5);
+VM248:2 Add 
+15

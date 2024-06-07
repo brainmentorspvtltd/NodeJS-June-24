@@ -1,0 +1,21 @@
+var x = 10;
+undefined
+var obj = {id:1001, name:'Ram'};
+undefined
+console.log("x is "+x+" Obj is "+obj);
+VM205:1 x is 10 Obj is [object Object]
+undefined
+console.log("x is "+x+" Obj is "+obj.toString());
+VM246:1 x is 10 Obj is [object Object]
+undefined
+obj instanceof Object;
+true
+typeof Object;
+'function'
+Object.prototype.toString;
+ƒ toString() { [native code] }
+console.log('X is ', x, 'Object is ', obj);
+VM506:1 X is  10 Object is  {id: 1001, name: 'Ram'}
+undefined
+obj.toString();
+'[object Object]'

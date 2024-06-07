@@ -1,0 +1,79 @@
+// rest vs spread
+undefined
+function add(...arg){
+console.log(arg);
+}
+undefined
+add(10,20,30,40,50);
+VM107:2 (5) [10, 20, 30, 40, 50]
+undefined
+var arr = [1,2,3];
+undefined
+var arr2 = [10,90,100];
+undefined
+var arr3 = [...arr, ...arr2];
+undefined
+arr3;
+(6) [1, 2, 3, 10, 90, 100]
+var arr4 = [arr, arr2, arr3];
+undefined
+arr4;
+(3) [Array(3), Array(3), Array(6)]0: (3) [1, 2, 3]1: (3) [10, 90, 100]2: (6) [1, 2, 3, 10, 90, 100]length: 3[[Prototype]]: Array(0)
+var emp = {id:1001,name:'Ram'};
+undefined
+var dept = {id:10, dname:'IT'};
+undefined
+var empDept = {...emp, ...dept};
+undefined
+empDept;
+{id: 10, name: 'Ram', dname: 'IT'}
+var w = [1,2,3,4];
+undefined
+var t = w[0];
+undefined
+t;
+1
+w;
+(4) [1, 2, 3, 4]
+var [a,b] = w;
+undefined
+var [a,,,b] = w;
+undefined
+a;
+1
+b;
+4
+typeof a;
+'number'
+typeof b;
+'number'
+var [a,,,,b] = w;
+undefined
+a;
+1
+b;
+undefined
+var obj = {id:1001, name:'Ram', city:'Delhi'};
+undefined
+var {name, city}  = obj;
+undefined
+name;
+'Ram'
+city;
+'Delhi'
+var {name1, city}  = obj;
+undefined
+name1;
+undefined
+function show(obj){
+    console.log(obj.name, obj.city);
+}
+show(obj);
+VM1111:2 Ram Delhi
+undefined
+function show({name, city}){
+    console.log(name, city);
+}
+show(obj);
+VM1142:2 Ram Delhi
+undefined

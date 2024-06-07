@@ -1,0 +1,50 @@
+// Function Types
+undefined
+// Named Function / Normal Function/ Function Defination Style
+undefined
+// Function Hoisting
+show();
+function show(){
+    console.log('I am Show ');
+}
+VM295:4 I am Show 
+undefined
+function output(){
+    // var x ; // undefined
+    console.log('X is ', x); 
+    var x = 100; // x = 100;
+    if(10>2){
+        var x = 10; // x = 10;
+    }
+    var x = 20; // x = 20
+    console.log('X is ', x);
+}
+undefined
+output();
+VM507:3 X is  undefined
+VM507:9 X is  20
+undefined
+x;
+VM535:1 Uncaught ReferenceError: x is not defined
+    at <anonymous>:1:1
+(anonymous) @ VM535:1
+var y = 100;
+undefined
+y;
+100
+window;
+Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+typeof window;
+'object'
+window instanceof Window;
+true
+typeof Window;
+'function'
+window instanceof Object;
+true
+window == this;
+true
+this;
+Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+window.y;
+100
