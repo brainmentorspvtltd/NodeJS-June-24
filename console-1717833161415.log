@@ -1,0 +1,97 @@
+// 1. Function Defination Style 2. function expression 3. Named Function Expression
+undefined
+// 4. Arrow Function
+undefined
+function show(){
+    return 1000;
+}
+undefined
+var show = ()=>1000;
+undefined
+typeof show;
+'function'
+show();
+1000
+var show = (x,y)=>{
+    console.log('X is ', x, 'Y is ', y);
+    return x + y;
+}
+undefined
+show(10,20);
+VM485:2 X is  10 Y is  20
+30
+var show = (x,y)=>{
+    console.log('X is ', x, 'Y is ', y);
+    //return x + y;
+}
+undefined
+show(10,20);
+VM526:2 X is  10 Y is  20
+undefined
+var square = (x)=>x*x;
+undefined
+var square = x=>x*x;
+undefined
+square(20);
+400
+function test(){
+    console.log(' I am Test ');
+}
+undefined
+test();
+VM782:2  I am Test 
+undefined
+window.test();
+VM782:2  I am Test 
+undefined
+function test(){
+    console.log(' I am Test ', this);
+}
+undefined
+test(); // window.test();
+VM860:2  I am Test  Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+undefined
+var t = new test();
+VM860:2  I am Test  test {}
+undefined
+square;
+x=>x*x
+var t1 = new square(3);
+VM1024:1 Uncaught TypeError: square is not a constructor
+    at <anonymous>:1:10
+(anonymous) @ VM1024:1
+var square = (x)=>console.log('this is ', this);
+undefined
+square(3);
+VM1136:1 this is  Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+undefined
+var w = new square(2);
+VM1243:1 Uncaught TypeError: square is not a constructor
+    at <anonymous>:1:9
+(anonymous) @ VM1243:1
+window;
+Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+var output = ()=>{
+    console.log(arguments.length);
+}
+undefined
+output(10,20,30);
+VM1403:2 Uncaught ReferenceError: arguments is not defined
+    at output (<anonymous>:2:17)
+    at <anonymous>:1:1
+output @ VM1403:2
+(anonymous) @ VM1452:1
+var output = function(){
+    console.log(arguments.length);
+}
+undefined
+output(19,20);
+VM1465:2 2
+undefined
+var output = (...a)=>{
+    console.log(a.length);
+}
+undefined
+output(10,20);
+VM1537:2 2
+undefined
