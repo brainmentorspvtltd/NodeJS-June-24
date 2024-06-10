@@ -1,0 +1,65 @@
+function init(){
+    var count = 0;
+    return function plus(){
+        count++;
+        return count;
+    }
+}
+undefined
+var fn = init();
+undefined
+fn;
+ƒ plus(){
+        count++;
+        return count;
+    }
+fn();
+1
+fn();
+2
+fn();
+3
+fn();
+4
+count;
+VM222:1 Uncaught ReferenceError: count is not defined
+    at <anonymous>:1:1
+(anonymous) @ VM222:1
+typeof fn;
+'function'
+console.dir(fn);
+VM293:1 ƒ plus()arguments: nullcaller: nulllength: 0name: "plus"prototype: {}[[FunctionLocation]]: VM117:3[[Prototype]]: ƒ ()[[Scopes]]: Scopes[2]0: Closure (init) {count: 4}1: Global {window: Window, self: Window, document: document, name: '', location: Location, …}
+undefined
+fn();
+5
+fn();
+6
+console.dir(fn);
+VM323:1 ƒ plus()arguments: nullcaller: nulllength: 0name: "plus"prototype: {}[[FunctionLocation]]: VM117:3[[Prototype]]: ƒ ()[[Scopes]]: Scopes[2]0: Closure (init) {count: 6}1: Global {window: Window, self: Window, document: document, name: '', location: Location, …}
+undefined
+var fn = init();
+undefined
+fn();
+1
+fn();
+2
+fn();
+3
+// IIFE or SIF
+undefined
+var fn2 = (function(){
+    var count = 0;
+    return function plus(){
+        count++;
+        return count;
+    }
+})();
+undefined
+fn2();
+1
+fn2();
+2
+fn2();
+3
+fn2();
+4

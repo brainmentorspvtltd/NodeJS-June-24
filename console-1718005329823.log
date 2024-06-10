@@ -1,0 +1,58 @@
+// object member access dot operator or [] operator
+undefined
+var dhoni = {name:'MS Dhoni', age: 41, city:'Delhi',50: 55, 100:10, full address:'New Delhi'};
+VM241:1 Uncaught SyntaxError: Unexpected identifier 'address'
+var dhoni = {name:'MS Dhoni', age: 41, city:'Delhi',50: 55, 100:10};
+undefined
+typeof dhoni;
+'object'
+dhoni.city;
+'Delhi'
+dhoni.age;
+41
+dhoni.50;
+VM374:1 Uncaught SyntaxError: Unexpected number
+dhoni[50];
+55
+dhoni['city'];
+'Delhi'
+var key = 'city';
+undefined
+dhoni[key];
+'Delhi'
+key = 50;
+50
+dhoni[key];
+55
+dhoni.key;
+undefined
+dhoni;
+{50: 55, 100: 10, name: 'MS Dhoni', age: 41, city: 'Delhi'}
+dhoni['full address']='New Delhi';
+'New Delhi'
+dhoni;
+{50: 55, 100: 10, name: 'MS Dhoni', age: 41, city: 'Delhi', full address: 'New Delhi'}
+dhoni['full address'];
+'New Delhi'
+for(var key in dhoni){
+    console.log(key);
+}
+VM813:2 50
+VM813:2 100
+VM813:2 name
+VM813:2 age
+VM813:2 city
+VM813:2 full address
+undefined
+for(var key in dhoni){
+    console.log(key, dhoni[key]);
+}
+VM880:2 50 55
+VM880:2 100 10
+VM880:2 name MS Dhoni
+VM880:2 age 41
+VM880:2 city Delhi
+VM880:2 full address New Delhi
+undefined
+dhoni['a'];
+undefined

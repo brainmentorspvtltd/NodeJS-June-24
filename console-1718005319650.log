@@ -1,0 +1,69 @@
+function calc(first, second){
+    var add = function(){
+        return first + second;
+    }
+     var sub = function(){
+        return first - second;
+    }
+     var mul = function(){
+        return first * second;
+    }
+     var div = function(){
+        return first / second;
+    }
+    return {add, sub, mul, div};
+}
+undefined
+var obj = calc();
+undefined
+typeof obj;
+'object'
+var obj = calc(10,20);
+undefined
+obj.add();
+30
+obj.sub();
+-10
+obj.mul();
+200
+obj.div();
+0.5
+obj['add']();
+30
+var input = 'add';
+undefined
+obj[input]();
+30
+input = 'sub';
+'sub'
+obj[input]();
+-10
+first;
+VM541:1 Uncaught ReferenceError: first is not defined
+    at <anonymous>:1:1
+(anonymous) @ VM541:1
+typeof obj;
+'object'
+console.dir(obj);
+VM609:1 Objectadd: ƒ ()arguments: nullcaller: nulllength: 0name: "add"prototype: {}[[FunctionLocation]]: VM158:2[[Prototype]]: ƒ ()[[Scopes]]: Scopes[2]div: ƒ ()mul: ƒ ()sub: ƒ ()[[Prototype]]: Object
+undefined
+function test(x,y,z , a, b){
+    var m = 10;
+    return x + y - z * a / b + m;
+    // return function(){
+    //     return x + y - z * a / b + m;
+    // }
+}
+undefined
+var e = calc(10,20);
+undefined
+e.add();
+30
+var t = 'add';
+undefined
+e[t]();
+30
+e;
+{add: ƒ, sub: ƒ, mul: ƒ, div: ƒ}
+e['add']();
+30

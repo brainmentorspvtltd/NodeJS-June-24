@@ -1,0 +1,51 @@
+// Closure
+undefined
+function plus(){
+    var count = 0;
+    count++;
+    return count;
+}
+undefined
+plus();
+1
+plus();
+1
+plus();
+1
+ var count = 0;
+function plus(){
+    count++;
+    return count;
+}
+undefined
+plus();
+1
+plus();
+2
+plus();
+3
+plus();
+4
+window.plus;
+ƒ plus(){
+    count++;
+    return count;
+}
+window.count;
+4
+count = "";
+''
+plus();
+1
+plus();
+2
+plus();
+3
+plus();
+4
+plus();
+5
+count = "one";
+'one'
+plus();
+NaN

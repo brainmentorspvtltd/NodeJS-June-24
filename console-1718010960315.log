@@ -1,0 +1,79 @@
+function heavyTask(v){
+    for(var  i = 1; i<=1200; i++){
+        for(var j = 1; j<=1000; j++){
+            
+        }
+    } 
+    return v * v;
+}
+undefined
+heavyTask(2);
+4
+function heavyTask(v){
+    for(var  i = 1; i<=12000; i++){
+        for(var j = 1; j<=1000; j++){
+            
+        }
+    } 
+    return v * v;
+}
+undefined
+heavyTask(2);
+4
+function heavyTask(v){
+    for(var  i = 1; i<=12000; i++){
+        for(var j = 1; j<=10000; j++){
+            
+        }
+    } 
+    return v * v;
+}
+undefined
+heavyTask(2);
+4
+var cache = {};
+function heavyTask(v){
+    if(cache[v]){
+        return cache[v];
+    }
+    for(var  i = 1; i<=12000; i++){
+        for(var j = 1; j<=10000; j++){
+            
+        }
+    } 
+    cache[v] = v * v;
+    return v * v;
+}
+undefined
+heavyTask(2);
+4
+cache;
+{2: 4}
+heavyTask(2);
+4
+heavyTask(3);
+9
+heavyTask(3);
+9
+heavyTask(0);
+0
+cache;
+{0: 0, 2: 4, 3: 9}
+heavyTask(0);
+0
+heavyTask(0);
+0
+heavyTask(-2);
+4
+cache;
+{0: 0, 2: 4, 3: 9, -2: 4}
+heavyTask(-2);
+4
+setTimeout(()=>cache={},3000);
+1
+a=100;
+100
+cache;
+{}
+var cache = {'menus':{}, 'dropdowns':{}};
+undefined

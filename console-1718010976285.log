@@ -1,0 +1,14 @@
+function process(){
+    return function(name, address){
+        return function(rating){
+            return function(questions){
+                return function(offer){
+                    return offer + questions + rating + name + address;
+                }
+            }
+        }
+    }
+}
+undefined
+process()('ram', 'delhi')(5)('IT Questions')('Selected')
+'SelectedIT Questions5ramdelhi'
