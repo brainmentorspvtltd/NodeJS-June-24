@@ -1,0 +1,199 @@
+// Let vs Var vs Const vs Accidental Global
+undefined
+function show(){
+    x = 100;
+    console.log('X is ', x);
+}
+undefined
+show();
+VM220:3 X is  100
+undefined
+x;
+100
+'use strict'
+'use strict'
+function(){
+    'use strict'
+}
+VM318:1 Uncaught SyntaxError: Function statements require a function name
+var w = function(){
+    'use strict'
+}
+undefined
+var a = 100; // Global (Hoisting)
+undefined
+window.a;
+100
+function show(){
+    // var y ; 
+    console.log('Y is ', y);
+    var y = 10; // y = 10;
+    console.log(y);
+    if(10>2){
+        var y = 30; ; // y = 30;
+        console.log(y);
+    }
+    var y = 40; // y = 40;
+    console.log(y);
+}
+
+
+
+undefined
+show();
+VM646:3 Y is  undefined
+VM646:5 10
+VM646:8 30
+VM646:11 40
+undefined
+y;
+VM680:1 Uncaught ReferenceError: y is not defined
+    at <anonymous>:1:1
+(anonymous) @ VM680:1
+function disp(){
+    // var g;
+    console.log(g); // undefined
+    if(10>2){
+        var g = 200; // g = 200;
+        let r = 100;
+    }
+}
+undefined
+disp();
+VM825:3 undefined
+undefined
+function disp(){
+    // var g;
+    console.log(g); // undefined
+    console.log(r); // Error
+    if(10>2){
+        var g = 200; // g = 200;
+        let r = 100;
+    }
+}
+undefined
+disp();
+VM891:3 undefined
+VM891:4 Uncaught ReferenceError: r is not defined
+    at disp (<anonymous>:4:17)
+    at <anonymous>:1:1
+disp @ VM891:4
+(anonymous) @ VM896:1
+function disp(){
+    // var g;
+    console.log(g); // undefined
+   // console.log(r); // Error
+    if(10>2){
+        console.log('R is ', r);
+        var g = 200; // g = 200;
+        let r = 100;
+    }
+}
+undefined
+disp();
+VM952:3 undefined
+VM952:6 Uncaught ReferenceError: Cannot access 'r' before initialization
+    at disp (<anonymous>:6:30)
+    at <anonymous>:1:1
+disp @ VM952:6
+(anonymous) @ VM970:1
+function disp(){
+    // TDZ
+   let r = 200;
+   console.log('R in Fn Level Scope', r);
+  
+    if(10>2){
+        // TDZ
+        console.log('R is ', r);
+      
+        let r = 100;
+    }
+    console.log('R is ', r);
+}
+undefined
+disp();
+VM1137:4 R in Fn Level Scope 200
+VM1137:8 Uncaught ReferenceError: Cannot access 'r' before initialization
+    at disp (<anonymous>:8:30)
+    at <anonymous>:1:1
+disp @ VM1137:8
+(anonymous) @ VM1154:1
+function disp(){
+    // TDZ
+   let r = 200;
+   console.log('R in Fn Level Scope', r);
+  
+    if(10>2){
+        // TDZ
+        console.log('R is ', r);
+      
+       // let r = 100;
+    }
+    console.log('R is ', r);
+}
+undefined
+disp();
+VM1160:4 R in Fn Level Scope 200
+VM1160:8 R is  200
+VM1160:12 R is  200
+undefined
+function disp(){
+    // TDZ
+   let r = 200;
+   console.log('R in Fn Level Scope', r);
+  
+    if(10>2){
+        // TDZ
+       // console.log('R is ', r);
+      
+        let r = 100;
+         console.log('R is ', r);
+        
+    }
+    console.log('R is ', r);
+}
+undefined
+disp();
+VM1190:4 R in Fn Level Scope 200
+VM1190:11 R is  100
+VM1190:14 R is  200
+undefined
+function disp(){
+    // TDZ
+   let r = 200;
+   console.log('R in Fn Level Scope', r);
+  
+    if(10>2){
+        // TDZ
+       // console.log('R is ', r);
+      
+        let r = 100;
+         console.log('R is ', r);
+        
+    }
+    let r = 900;
+    console.log('R is ', r);
+}
+VM1223:14 Uncaught SyntaxError: Identifier 'r' has already been declared
+var t = 1000;
+undefined
+window.t;
+1000
+let gg = 1000;
+undefined
+window.gg;
+undefined
+const MAX = 100;
+undefined
+MAX++;
+VM1375:1 Uncaught TypeError: Assignment to constant variable.
+    at <anonymous>:1:4
+(anonymous) @ VM1375:1
+const arr = [10,20,30];
+undefined
+arr.push(1000);
+4
+arr = [1000,2000];
+VM1517:1 Uncaught TypeError: Assignment to constant variable.
+    at <anonymous>:1:5
+(anonymous) @ VM1517:1

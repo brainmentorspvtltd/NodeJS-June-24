@@ -1,0 +1,247 @@
+// Promise Methods
+undefined
+function cube(num){
+    const pr = new Promise((resolve, reject)=>{
+        setTimeout(()=>{
+            if(num<10){
+                resolve(num**3);
+            }
+            else{
+                reject ("Error :: Value is 10 or greater ");
+            }
+    })
+    });
+    return pr;
+    
+}
+undefined
+function cube(num, time){
+    const pr = new Promise((resolve, reject)=>{
+        setTimeout(()=>{
+            if(num<10){
+                resolve(num**3);
+            }
+            else{
+                reject ("Error :: Value is 10 or greater ");
+            }
+    }, time)
+    });
+    return pr;
+    
+}
+undefined
+function cube(num, time){
+    console.log('Cube Start ', num);
+    const pr = new Promise((resolve, reject)=>{
+        setTimeout(()=>{
+            if(num<10){
+                resolve(num**3);
+            }
+            else{
+                reject ("Error :: Value is 10 or greater ");
+            }
+    }, time)
+    });
+    return pr;
+    
+}
+undefined
+const e = Promise.all(cube(3,1000), cube(2,4000), cube(5,5000));
+e.then(r=>console.log(r)).catch(e=>console.log(e));
+VM570:2 Cube Start  3
+VM570:2 Cube Start  2
+VM570:2 Cube Start  5
+VM776:2 TypeError: object is not iterable (cannot read property Symbol(Symbol.iterator))
+    at Function.all (<anonymous>)
+    at <anonymous>:1:19
+Promise {<fulfilled>: undefined}
+const e = Promise.all([cube(3,1000), cube(2,4000), cube(5,5000)]);
+e.then(r=>console.log(r)).catch(e=>console.log(e));
+VM570:2 Cube Start  3
+VM570:2 Cube Start  2
+VM570:2 Cube Start  5
+Promise {<pending>}
+VM783:2 (3) [27, 8, 125]
+const e = Promise.all([cube(3,1000), cube(2,4000), cube(5,5000)]);
+e.then(r=>console.log(r)).catch(e=>console.log(e));
+VM570:2 Cube Start  3
+VM570:2 Cube Start  2
+VM570:2 Cube Start  5
+Promise {<pending>}
+VM786:2 (3) [27, 8, 125]
+const e = Promise.all([cube(3,1000), cube(20,4000), cube(5,5000)]);
+e.then(r=>console.log(r)).catch(e=>console.log(e));
+VM570:2 Cube Start  3
+VM570:2 Cube Start  20
+VM570:2 Cube Start  5
+Promise {<pending>}
+VM792:2 Error :: Value is 10 or greater 
+const e = Promise.allSettled([cube(3,1000), cube(20,4000), cube(5,5000)]);
+e.then(r=>console.log(r)).catch(e=>console.log(e));
+VM570:2 Cube Start  3
+VM570:2 Cube Start  20
+VM570:2 Cube Start  5
+Promise {<pending>}
+VM804:2 (3) [{…}, {…}, {…}]0: {status: 'fulfilled', value: 27}1: {status: 'rejected', reason: 'Error :: Value is 10 or greater '}2: {status: 'fulfilled', value: 125}length: 3[[Prototype]]: Array(0)
+const e = Promise.allSettled([cube(30,1000), cube(20,4000), cube(50,5000)]);
+e.then(r=>console.log(r)).catch(e=>console.log(e));
+VM570:2 Cube Start  30
+VM570:2 Cube Start  20
+VM570:2 Cube Start  50
+Promise {<pending>}
+VM814:2 (3) [{…}, {…}, {…}]0: {status: 'rejected', reason: 'Error :: Value is 10 or greater '}1: {status: 'rejected', reason: 'Error :: Value is 10 or greater '}2: {status: 'rejected', reason: 'Error :: Value is 10 or greater '}length: 3[[Prototype]]: Array(0)
+const e = Promise.race([cube(3,1000), cube(2,4000), cube(5,5000)]);
+e.then(r=>console.log(r)).catch(e=>console.log(e));
+VM570:2 Cube Start  3
+VM570:2 Cube Start  2
+VM570:2 Cube Start  5
+Promise {<pending>}
+VM833:2 27
+const e = Promise.race([cube(30,1000), cube(2,4000), cube(5,5000)]);
+e.then(r=>console.log(r)).catch(e=>console.log(e));
+VM570:2 Cube Start  30
+VM570:2 Cube Start  2
+VM570:2 Cube Start  5
+Promise {<pending>}
+VM839:2 Error :: Value is 10 or greater 
+const e = Promise.any([cube(30,1000), cube(2,4000), cube(5,5000)]);
+e.then(r=>console.log(r)).catch(e=>console.log(e));
+VM570:2 Cube Start  30
+VM570:2 Cube Start  2
+VM570:2 Cube Start  5
+Promise {<pending>}
+VM848:2 8
+const e = Promise.any([cube(30,1000), cube(20,4000), cube(5,5000)]);
+e.then(r=>console.log(r)).catch(e=>console.log(e));
+VM570:2 Cube Start  30
+VM570:2 Cube Start  20
+VM570:2 Cube Start  5
+Promise {<pending>}
+VM854:2 125
+const e = Promise.any([cube(30,1000), cube(20,4000), cube(25,5000)]);
+e.then(r=>console.log(r)).catch(e=>console.log(e));
+VM570:2 Cube Start  30
+VM570:2 Cube Start  20
+VM570:2 Cube Start  25
+Promise {<pending>}
+VM858:2 AggregateError: All promises were rejected
+const e = Promise.any([cube(30,1000), cube(20,4000), cube(25,5000)]);
+e.then(r=>console.log('Then ',r)).catch(e=>console.log('Catch', e));
+VM570:2 Cube Start  30
+VM570:2 Cube Start  20
+VM570:2 Cube Start  25
+Promise {<pending>}
+VM905:2 Catch AggregateError: All promises were rejected
+const e = Promise.any([cube(30,1000), cube(20,4000), cube(5,5000)]);
+e.then(r=>console.log('Then ',r)).catch(e=>console.log('Catch', e));
+VM570:2 Cube Start  30
+VM570:2 Cube Start  20
+VM570:2 Cube Start  5
+Promise {<pending>}
+VM909:2 Then  125
+function cube(num, time){
+    console.log('Cube Start ', num);
+    const pr = new Promise((resolve, reject)=>{
+        setTimeout(()=>{
+            if(num<1000){
+                resolve(num**3);
+            }
+            else{
+                reject ("Error :: Value is 1000 or greater ");
+            }
+    }, time)
+    });
+    return pr;
+    
+}
+undefined
+function total(){
+    try{
+    const r = await cube(2,1000);
+        console.log('R is ', r);
+    const r2 =await cube(r, 2000);
+        console.log('R2 is ', r2);
+    const r3 = await cube(r2, 4000);
+        console.log('R3 is ', r3);
+    }
+    catch(err){
+        console.log('Error is ', err);
+    }
+}
+VM1314:3 Uncaught SyntaxError: await is only valid in async functions and the top level bodies of modules
+async function total(){
+    try{
+    const r = await cube(2,1000);
+        console.log('R is ', r);
+    const r2 =await cube(r, 2000);
+        console.log('R2 is ', r2);
+    const r3 = await cube(r2, 4000);
+        console.log('R3 is ', r3);
+        return r1 + r2 + r3; 
+    }
+    catch(err){
+        console.log('Error is ', err);
+    }
+}
+undefined
+console.log('Start ');
+const pr = total();
+pr.then(d=>console.log(d)).catch(er=>console.log(er));
+console.log('End ');
+VM1564:1 Start 
+VM979:2 Cube Start  2
+VM1564:4 End 
+undefined
+VM1356:4 R is  8
+VM979:2 Cube Start  8
+VM1356:6 R2 is  512
+VM979:2 Cube Start  512
+VM1356:8 R3 is  134217728
+VM1356:12 Error is  ReferenceError: r1 is not defined
+    at total (<anonymous>:9:9)
+VM1564:3 undefined
+async function total(){
+    try{
+    const r = await cube(2,1000);
+        console.log('R is ', r);
+    const r2 =await cube(r, 2000);
+        console.log('R2 is ', r2);
+    const r3 = await cube(r2, 4000);
+        console.log('R3 is ', r3);
+        return r + r2 + r3; 
+    }
+    catch(err){
+        console.log('Error is ', err);
+    }
+}
+undefined
+console.log('Start ');
+const pr = total();
+pr.then(d=>console.log(d)).catch(er=>console.log(er));
+console.log('End ');
+VM1571:1 Start 
+VM979:2 Cube Start  2
+VM1571:4 End 
+undefined
+VM1568:4 R is  8
+VM979:2 Cube Start  8
+VM1568:6 R2 is  512
+VM979:2 Cube Start  512
+VM1568:8 R3 is  134217728
+VM1571:3 134218248
+async function total(){
+    try{
+    const r = await cube(2,1000);
+        console.log('R is ', r);
+    const r2 =await cube(r, 2000);
+        console.log('R2 is ', r2);
+    const r3 = await cube(r2, 4000);
+        console.log('R3 is ', r3);
+        return r + r2 + r3; 
+    }
+    catch(err){
+        console.log('Error is ', err);
+        throw err;
+    }
+}
+undefined

@@ -1,0 +1,227 @@
+// Async Example
+undefined
+console.log('Start ');
+const result = heavyTask();
+console.log('End ' result);
+function heavyTask(){
+    setTimeout(()=>{
+        console.log('I am Going to return ');
+        return 1000;
+    },5000);
+    // return undefined;
+}
+VM275:3 Uncaught SyntaxError: missing ) after argument list
+console.log('Start ');
+const result = heavyTask();
+console.log('End ' ,result);
+function heavyTask(){
+    setTimeout(()=>{
+        console.log('I am Going to return ');
+        return 1000;
+    },5000);
+    // return undefined;
+}
+VM284:1 Start 
+VM284:3 End  undefined
+undefined
+VM284:6 I am Going to return 
+function callBack(result){
+    console.log('Here is the result ', result);
+}
+console.log('Start ');
+//const result = heavyTask();
+heavyTask(callBack);
+console.log('End ' ,result);
+function heavyTask(fn){
+    setTimeout(()=>{
+        console.log('I am Going to return ');
+        //return 1000;
+        fn(1000);
+    },5000);
+    // return undefined;
+}
+VM455:4 Start 
+VM455:7 End  undefined
+undefined
+VM455:10 I am Going to return 
+VM455:2 Here is the result  1000
+function callBack(result){
+    console.log('Here is the result ', result);
+}
+console.log('Start ');
+//const result = heavyTask();
+heavyTask(callBack);
+//console.log('End ' ,result);
+console.log('End');
+function heavyTask(fn){
+    setTimeout(()=>{
+        console.log('I am Going to return ');
+        //return 1000;
+        fn(1000);
+    },5000);
+    // return undefined;
+}
+VM496:4 Start 
+VM496:8 End
+undefined
+VM496:11 I am Going to return 
+VM496:2 Here is the result  1000
+console.log('Start ');
+const promise = heavyTask(true);
+console.log('Loading...');
+promise.then(result=>console.log(result)).catch(err=>console.log('error', err));
+//heavyTask(callBack);
+//console.log('End ' ,result);
+console.log('End');
+function heavyTask(flag){
+    const pr = new Promise((resolve, reject)=>{
+         setTimeout(()=>{
+        console.log('I am Going to return ');
+        //return 1000;
+             if(flag){
+             resolve(1000);
+             }
+             else{
+             reject('Some Problem in Flag ');
+             }
+        
+    },5000);
+    });
+    return pr;
+   
+    // return undefined;
+}
+VM902:1 Start 
+VM902:3 Loading...
+VM902:7 End
+undefined
+VM902:11 I am Going to return 
+VM902:4 1000
+console.log('Start ');
+const promise = heavyTask(true);
+console.log('Loading...');
+promise.then(result=>console.log('Then Call ', result)).catch(err=>console.log('error', err));
+//heavyTask(callBack);
+//console.log('End ' ,result);
+console.log('End');
+function heavyTask(flag){
+    const pr = new Promise((resolve, reject)=>{
+         setTimeout(()=>{
+        console.log('I am Going to return ');
+        //return 1000;
+             if(flag){
+             resolve(1000);
+             }
+             else{
+             reject('Some Problem in Flag ');
+             }
+        
+    },5000);
+    });
+    return pr;
+   
+    // return undefined;
+}
+VM938:1 Start 
+VM938:3 Loading...
+VM938:7 End
+undefined
+VM938:11 I am Going to return 
+VM938:4 Then Call  1000
+console.log('Start ');
+const promise = heavyTask(false);
+console.log('Loading...');
+promise.then(result=>console.log('Then Call ', result)).catch(err=>console.log('error', err));
+//heavyTask(callBack);
+//console.log('End ' ,result);
+console.log('End');
+function heavyTask(flag){
+    const pr = new Promise((resolve, reject)=>{
+         setTimeout(()=>{
+        console.log('I am Going to return ');
+        //return 1000;
+             if(flag){
+             resolve(1000);
+             }
+             else{
+             reject('Some Problem in Flag ');
+             }
+        
+    },5000);
+    });
+    return pr;
+   
+    // return undefined;
+}
+VM955:1 Start 
+VM955:3 Loading...
+VM955:7 End
+undefined
+VM955:11 I am Going to return 
+VM955:4 error Some Problem in Flag 
+console.log('Start ');
+const promise = heavyTask(false);
+console.log('Loading... ', promise);
+promise.then(result=>console.log('Then Call ', result)).catch(err=>console.log('error', err));
+//heavyTask(callBack);
+//console.log('End ' ,result);
+console.log('End');
+function heavyTask(flag){
+    const pr = new Promise((resolve, reject)=>{
+         setTimeout(()=>{
+        console.log('I am Going to return ');
+        //return 1000;
+             if(flag){
+             resolve(1000);
+             }
+             else{
+             reject('Some Problem in Flag ');
+             }
+        
+    },5000);
+    });
+    return pr;
+   
+    // return undefined;
+}
+VM1001:1 Start 
+VM1001:3 Loading...  Promise {<pending>}[[Prototype]]: Promise[[PromiseState]]: "pending"[[PromiseResult]]: undefined
+VM1001:7 End
+undefined
+VM1001:11 I am Going to return 
+VM1001:4 error Some Problem in Flag 
+promise;
+Promise {<rejected>: 'Some Problem in Flag '}
+console.log('Start ');
+const promise = heavyTask(true);
+console.log('Loading... ', promise);
+promise.then(result=>console.log('Then Call ', result)).catch(err=>console.log('error', err));
+//heavyTask(callBack);
+//console.log('End ' ,result);
+console.log('End');
+function heavyTask(flag){
+    const pr = new Promise((resolve, reject)=>{
+         setTimeout(()=>{
+        console.log('I am Going to return ');
+        //return 1000;
+             if(flag){
+             resolve(1000);
+             }
+             else{
+             reject('Some Problem in Flag ');
+             }
+        
+    },5000);
+    });
+    return pr;
+   
+    // return undefined;
+}
+VM1052:1 Start 
+VM1052:3 Loading...  Promise {<pending>}
+VM1052:7 End
+undefined
+VM1052:11 I am Going to return 
+VM1052:4 Then Call  1000
+promise;
+Promise {<fulfilled>: 1000}

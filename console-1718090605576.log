@@ -1,0 +1,72 @@
+// Sync vs Async
+undefined
+function add(){
+    var a = 100;
+    var b = 200;
+    var c = a + b;
+    console.log(c);
+}
+undefined
+console.log('Start ');
+setTimeout(()=>{
+    console.log('I will call after some time ');
+},4000);
+console.log('End ');
+VM298:1 Start 
+VM298:5 End 
+undefined
+VM298:3 I will call after some time 
+function db(){
+    return 4000;
+}
+var time = db();
+console.log('Start ');
+setTimeout(()=>{
+    console.log('I will call after some time ');
+},time);
+console.log('End ');
+VM367:5 Start 
+VM367:9 End 
+undefined
+VM367:7 I will call after some time 
+var t = setInterval(()=>{
+    console.log('Interval Call ')
+},1000);
+undefined
+VM474:2 Interval Call 
+VM474:2 Interval Call 
+VM474:2 Interval Call 
+VM474:2 Interval Call 
+VM474:2 Interval Call 
+VM474:2 Interval Call 
+VM474:2 Interval Call 
+VM474:2 Interval Call 
+VM474:2 Interval Call 
+VM474:2 Interval Call 
+VM474:2 Interval Call 
+VM474:2 Interval Call 
+VM474:2 Interval Call 
+VM474:2 Interval Call 
+VM474:2 Interval Call 
+VM474:2 Interval Call 
+VM474:2 Interval Call 
+VM474:2 Interval Call 
+VM474:2 Interval Call 
+VM474:2 Interval Call 
+VM474:2 Interval Call 
+VM474:2 Interval Call 
+VM474:2 Interval Call 
+VM474:2 Interval Call 
+VM474:2 Interval Call 
+VM474:2 Interval Call 
+VM474:2 Interval Call 
+VM474:2 Interval Call 
+VM474:2 Interval Call 
+VM474:2 Interval Call 
+VM474:2 Interval Call 
+VM474:2 Interval Call 
+VM474:2 Interval Call 
+VM474:2 Interval Call 
+VM474:2 Interval Call 
+clearInterval(t);
+undefined

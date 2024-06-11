@@ -1,0 +1,10 @@
+(function(){
+    'use strict'
+      x = 100;
+    console.log(x);
+})();
+VM82:3 Uncaught ReferenceError: x is not defined
+    at <anonymous>:3:9
+    at <anonymous>:5:3
+(anonymous) @ VM82:3
+(anonymous) @ VM82:5
