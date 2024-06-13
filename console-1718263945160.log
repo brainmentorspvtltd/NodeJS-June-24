@@ -1,0 +1,68 @@
+// ABC of Functions
+undefined
+function whoIam(city,pincode){
+    console.log('I am ', this.name, city, pincode);
+}
+undefined
+var name= 'Ram';
+undefined
+window.name;
+'Ram'
+window.whoIam;
+ƒ whoIam(city,pincode){
+    console.log('I am ', this.name, city, pincode);
+}
+whoIam('Delhi', 110007);  // window.whoIam()
+VM275:2 I am  Ram Delhi 110007
+undefined
+var obj  = {
+    name :'Tim',
+     whoIam:function(city,pincode){
+    console.log('I am ', this.name, city, pincode);
+}
+}
+undefined
+obj.whoIam('Mumbai',201100);
+VM541:4 I am  Tim Mumbai 201100
+undefined
+window.obj.whoIam('Mumbai',201100);
+VM541:4 I am  Tim Mumbai 201100
+undefined
+var obj2 = {name:'Shyam'};
+undefined
+window.whoIam();
+VM275:2 I am  Ram undefined undefined
+undefined
+window.whoIam('Delhi', 110002);
+VM275:2 I am  Ram Delhi 110002
+undefined
+whoIam('Delhi', 110002);
+VM275:2 I am  Ram Delhi 110002
+undefined
+window.whoIam.call(obj2,'New Delhi', 110007);
+VM275:2 I am  Shyam New Delhi 110007
+undefined
+obj.whoIam.call(obj2,'New Delhi', 110007);
+VM541:4 I am  Shyam New Delhi 110007
+undefined
+obj.whoIam.apply(obj2,['New Delhi', 110007]);
+VM541:4 I am  Shyam New Delhi 110007
+undefined
+var fn = obj.whoIam.bind(obj2,['New Delhi', 110007]);
+undefined
+fn('Mumbai',21111);
+VM541:4 I am  Shyam (2) ['New Delhi', 110007] Mumbai
+undefined
+var fn = obj.whoIam.bind(obj2);
+undefined
+fn('New Delhi', 11000);
+VM541:4 I am  Shyam New Delhi 11000
+undefined
+var fn = obj.whoIam.bind(obj2,'Abc',1111);
+undefined
+fn();
+VM541:4 I am  Shyam Abc 1111
+undefined
+var w = new whoIam();
+VM275:2 I am  undefined undefined undefined
+undefined

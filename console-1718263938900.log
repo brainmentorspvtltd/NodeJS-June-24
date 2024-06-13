@@ -1,0 +1,130 @@
+// IS-A Replicate
+undefined
+function Person(name , city){
+    this.name = name;
+    this.city = city;
+}
+Person.prototype.show = function(){
+    console.log(` Name ${this.name} City ${this.city}`);
+}
+function Employee(id, salary){
+    this.id = id;
+    this.salary = salary;
+}
+Employee.prototype.show = function(){
+    console.log(` Id ${this.id} Salary ${this.salary}`);
+}
+ƒ (){
+    console.log(` Id ${this.id} Salary ${this.salary}`);
+}
+Employee.prototype;
+{show: ƒ}
+Person.prototype;
+{show: ƒ}
+Employee.prototype.__proto__;
+{__defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, __lookupSetter__: ƒ, …}
+Employee.prototype.__proto__ == Object.prototype;
+true
+Person.prototype.__proto__ == Object.prototype;
+true
+Employee.prototype.__proto__ = Person.prototype;
+{show: ƒ}
+Employee.prototype.__proto__ == Object.prototype;
+false
+Employee.prototype.__proto__ == Person.prototype;
+true
+Person.prototype.__proto__ == Object.prototype;
+true
+function Person(name , city){
+    this.name = name;
+    this.city = city;
+}
+Person.prototype.show = function(){
+    console.log(` Name ${this.name} City ${this.city}`);
+}
+function Employee(id, salary, name, city){
+    
+    Person.call(this, name, city);
+    this.id = id;
+    this.salary = salary;
+}
+Employee.prototype.show = function(){
+    Person.prototype.show.call(this);
+    console.log(` Id ${this.id} Salary ${this.salary}`);
+}
+Employee.prototype.__proto__ = Person.prototype;
+var ram =new Employee(1001, 99999,'Ram', 'Delhi');
+ram.show();
+VM1154:6  Name Ram City Delhi
+VM1154:16  Id 1001 Salary 99999
+undefined
+function Person(name , city){
+    this.name = name;
+    this.city = city;
+}
+Person.prototype.show = function(){
+    console.log(` Name ${this.name} City ${this.city}`);
+}
+function Employee(id, salary, name, city){
+    Person(name, city);
+    //Person.call(this, name, city);
+    this.id = id;
+    this.salary = salary;
+}
+Employee.prototype.show = function(){
+    Person.prototype.show.call(this);
+    console.log(` Id ${this.id} Salary ${this.salary}`);
+}
+Employee.prototype.__proto__ = Person.prototype;
+var ram =new Employee(1001, 99999,'Ram', 'Delhi');
+ram.show();
+VM1220:6  Name undefined City undefined
+VM1220:16  Id 1001 Salary 99999
+undefined
+function Person(name , city){
+    this.name = name;
+    this.city = city;
+}
+Person.prototype.show = function(){
+    console.log(` Name ${this.name} City ${this.city}`);
+}
+function Employee(id, salary, name, city){
+   // Person(name, city);
+    Person.call(this, name, city);
+    this.id = id;
+    this.salary = salary;
+}
+Employee.prototype.show = function(){
+   //show();
+    // Person.prototype.show.call(this);
+    console.log(` Id ${this.id} Salary ${this.salary}`);
+}
+Employee.prototype.__proto__ = Person.prototype;
+var ram =new Employee(1001, 99999,'Ram', 'Delhi');
+ram.show();
+VM1239:17  Id 1001 Salary 99999
+undefined
+function Person(name , city){
+    this.name = name;
+    this.city = city;
+}
+Person.prototype.show = function(){
+    console.log(` Name ${this.name} City ${this.city}`);
+}
+function Employee(id, salary, name, city){
+   // Person(name, city);
+    Person.call(this, name, city);
+    this.id = id;
+    this.salary = salary;
+}
+Employee.prototype.show = function(){
+   //show();
+     Person.prototype.show.call(this);
+    console.log(` Id ${this.id} Salary ${this.salary}`);
+}
+Employee.prototype.__proto__ = Person.prototype;
+var ram =new Employee(1001, 99999,'Ram', 'Delhi');
+ram.show();
+VM1243:6  Name Ram City Delhi
+VM1243:17  Id 1001 Salary 99999
+undefined

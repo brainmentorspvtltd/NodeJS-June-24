@@ -1,0 +1,231 @@
+// OOJS
+undefined
+const ram = {id:1001, name:'Ram'};
+undefined
+typeof ram;
+'object'
+ram instanceof Object;
+true
+typeof Object;
+'function'
+ram.salary = 55555;
+55555
+ram;
+{id: 1001, name: 'Ram', salary: 55555}
+delete ram.id;
+true
+ram;
+{name: 'Ram', salary: 55555}
+function createEmployeeInstance(id , name, salary){
+    const emp = {};
+    emp.id = id;
+    emp.name = name;
+    emp.salary = salary;
+    return emp;
+}
+
+
+
+
+undefined
+var shyam = createEmployeeInstance(1002, 'Shyam' , 44444);
+undefined
+shyam;
+{id: 1002, name: 'Shyam', salary: 44444}
+var tom = createEmployeeInstance(1003, 'Tom' , 54444);
+undefined
+tom;
+{id: 1003, name: 'Tom', salary: 54444}
+shyam instanceof Object;
+true
+tom instanceof Object;
+true
+function Employee(id=0 , name="", salary=0.0){
+    // this reference inside the Employee Function
+    // Function Constructor
+    this.id = id;
+    this.name = name;
+    this.salary = salary;
+    
+}
+var tim = new Employee(1001, "Tim", 99999);
+
+
+
+
+undefined
+tim;
+Employee {id: 1001, name: 'Tim', salary: 99999}
+tim instanceof Employee;
+true
+tim instanceof Object;
+true
+tim;
+Employee {id: 1001, name: 'Tim', salary: 99999}id: 1001name: "Tim"salary: 99999[[Prototype]]: Objectconstructor: ƒ Employee(id=0 , name="", salary=0.0)[[Prototype]]: Objectconstructor: ƒ Object()hasOwnProperty: ƒ hasOwnProperty()isPrototypeOf: ƒ isPrototypeOf()propertyIsEnumerable: ƒ propertyIsEnumerable()toLocaleString: ƒ toLocaleString()toString: ƒ toString()valueOf: ƒ valueOf()__defineGetter__: ƒ __defineGetter__()__defineSetter__: ƒ __defineSetter__()__lookupGetter__: ƒ __lookupGetter__()__lookupSetter__: ƒ __lookupSetter__()__proto__: (...)get __proto__: ƒ __proto__()set __proto__: ƒ __proto__()
+tom;
+{id: 1003, name: 'Tom', salary: 54444}id: 1003name: "Tom"salary: 54444[[Prototype]]: Objectconstructor: ƒ Object()hasOwnProperty: ƒ hasOwnProperty()isPrototypeOf: ƒ isPrototypeOf()propertyIsEnumerable: ƒ propertyIsEnumerable()toLocaleString: ƒ toLocaleString()toString: ƒ toString()valueOf: ƒ valueOf()__defineGetter__: ƒ __defineGetter__()__defineSetter__: ƒ __defineSetter__()__lookupGetter__: ƒ __lookupGetter__()__lookupSetter__: ƒ __lookupSetter__()__proto__: (...)get __proto__: ƒ __proto__()set __proto__: ƒ __proto__()
+function Employee(id=0 , name="", salary=0.0){
+    // this reference inside the Employee Function
+    // Function Constructor
+    this.id = id;
+    this.name = name;
+    this.salary = salary;
+    this.print = function(){
+        console.log(`Id ${this.id} Name ${this.name} Salary ${this.salary}`);
+    }
+    
+}
+var tim = new Employee(1001, "Tim", 99999);
+
+
+
+
+undefined
+var kim = new Employee(1002, 'Kim', 33333);
+undefined
+tim == kim;
+false
+tim;
+Employee {id: 1001, name: 'Tim', salary: 99999, print: ƒ}id: 1001name: "Tim"print: ƒ ()salary: 99999[[Prototype]]: Object
+kim;
+Employee {id: 1002, name: 'Kim', salary: 33333, print: ƒ}id: 1002name: "Kim"print: ƒ ()salary: 33333[[Prototype]]: Object
+tim.print();
+VM1280:8 Id 1001 Name Tim Salary 99999
+undefined
+kim.print();
+VM1280:8 Id 1002 Name Kim Salary 33333
+undefined
+tim.__proto__;
+{}constructor: ƒ Employee(id=0 , name="", salary=0.0)[[Prototype]]: Object
+tim.__proto__ == Employee.prototype;
+true
+console.dir(Employee);
+VM1685:1 ƒ Employee(id=0 , name="", salary=0.0)arguments: nullcaller: nulllength: 0name: "Employee"prototype: {}[[FunctionLocation]]: VM1280:1[[Prototype]]: ƒ ()[[Scopes]]: Scopes[2]
+undefined
+Employee.name;
+'Employee'
+Employee.length;
+0
+Employee.prototype;
+{}
+Employee.prototype.disp = function(){
+    console.log(`Id ${this.id} Name ${this.name} Salary ${this.salary}`);
+}
+ƒ (){
+    console.log(`Id ${this.id} Name ${this.name} Salary ${this.salary}`);
+}
+tim.print();
+VM1280:8 Id 1001 Name Tim Salary 99999
+undefined
+kim.print();
+VM1280:8 Id 1002 Name Kim Salary 33333
+undefined
+tim;
+Employee {id: 1001, name: 'Tim', salary: 99999, print: ƒ}id: 1001name: "Tim"print: ƒ ()salary: 99999[[Prototype]]: Objectdisp: ƒ ()constructor: ƒ Employee(id=0 , name="", salary=0.0)[[Prototype]]: Object
+kim;
+Employee {id: 1002, name: 'Kim', salary: 33333, print: ƒ}id: 1002name: "Kim"print: ƒ ()salary: 33333[[Prototype]]: Object
+tim.disp();
+VM1886:2 Id 1001 Name Tim Salary 99999
+undefined
+kim.disp();
+VM1886:2 Id 1002 Name Kim Salary 33333
+undefined
+tim.__proto__ == Employee.prototype;
+true
+typeof Employee;
+'function'
+typeof Employee.prototype;
+'object'
+kim.__proto__ == Employee.prototype;
+true
+tim.__proto__ == kim.__proto__;
+true
+Employee.prototype.disp();
+VM1886:2 Id undefined Name undefined Salary undefined
+undefined
+kim.disp();
+VM1886:2 Id 1002 Name Kim Salary 33333
+undefined
+kim.__proto__.disp();
+VM1886:2 Id undefined Name undefined Salary undefined
+undefined
+kim.disp();
+VM1886:2 Id 1002 Name Kim Salary 33333
+undefined
+kim;
+Employee {id: 1002, name: 'Kim', salary: 33333, print: ƒ}id: 1002name: "Kim"print: ƒ ()salary: 33333[[Prototype]]: Objectdisp: ƒ ()constructor: ƒ Employee(id=0 , name="", salary=0.0)[[Prototype]]: Object
+var arr = [10,20,30];
+undefined
+arr.push(9000);
+4
+Array.prototype.push;
+ƒ push() { [native code] }
+arr.__proto__ == Array.prototype;
+true
+Array.prototype.insert = function(index, val){
+    this.splice(index, 0,val);
+    return this.length;
+}
+ƒ (index, val){
+    this.splice(index, 0,val);
+    return this.length;
+}
+arr;
+(4) [10, 20, 30, 9000]
+arr.insert(1,1000);
+5
+arr;
+(5) [10, 1000, 20, 30, 9000]
+kim.disp();
+VM1886:2 Id 1002 Name Kim Salary 33333
+undefined
+tim.disp();
+VM1886:2 Id 1001 Name Tim Salary 99999
+undefined
+kim;
+Employee {id: 1002, name: 'Kim', salary: 33333, print: ƒ}id: 1002name: "Kim"print: ƒ ()salary: 33333[[Prototype]]: Objectdisp: ƒ ()constructor: ƒ Employee(id=0 , name="", salary=0.0)[[Prototype]]: Object
+Employee.prototype.disp();
+VM1886:2 Id undefined Name undefined Salary undefined
+undefined
+Employee.prototype.disp;
+ƒ (){
+    console.log(`Id ${this.id} Name ${this.name} Salary ${this.salary}`);
+}
+console.dir(Employee.prototype.disp);
+VM3358:1 ƒ anonymous()arguments: nullcaller: nulllength: 0name: ""prototype: {}[[FunctionLocation]]: VM1886:1[[Prototype]]: ƒ ()apply: ƒ apply()arguments: (...)bind: ƒ bind()call: ƒ call()caller: (...)constructor: ƒ Function()length: 0name: ""toString: ƒ toString()Symbol(Symbol.hasInstance): ƒ [Symbol.hasInstance]()get arguments: ƒ ()set arguments: ƒ ()get caller: ƒ ()set caller: ƒ ()[[FunctionLocation]]: [[Prototype]]: Object[[Scopes]]: Scopes[0][[Scopes]]: Scopes[2]
+undefined
+Employee.prototype == kim.__proto__;
+true
+Employee.prototype.disp;
+ƒ (){
+    console.log(`Id ${this.id} Name ${this.name} Salary ${this.salary}`);
+}
+kim.__proto__.disp;
+ƒ (){
+    console.log(`Id ${this.id} Name ${this.name} Salary ${this.salary}`);
+}
+Employee.prototype.disp();
+VM1886:2 Id undefined Name undefined Salary undefined
+undefined
+kim.__proto__;
+{disp: ƒ}
+Employee.__proto__
+ƒ () { [native code] }
+function test(){}
+undefined
+test.__proto__;
+ƒ () { [native code] }
+test.prototype;
+{}
+console.dir(test);
+VM3784:1 ƒ test()arguments: nullcaller: nulllength: 0name: "test"prototype: {}constructor: ƒ test()[[Prototype]]: Objectconstructor: ƒ Object()hasOwnProperty: ƒ hasOwnProperty()isPrototypeOf: ƒ isPrototypeOf()propertyIsEnumerable: ƒ propertyIsEnumerable()toLocaleString: ƒ toLocaleString()toString: ƒ toString()valueOf: ƒ valueOf()__defineGetter__: ƒ __defineGetter__()__defineSetter__: ƒ __defineSetter__()__lookupGetter__: ƒ __lookupGetter__()__lookupSetter__: ƒ __lookupSetter__()__proto__: (...)get __proto__: ƒ __proto__()set __proto__: ƒ __proto__()[[FunctionLocation]]: VM3685:1[[Prototype]]: ƒ ()apply: ƒ apply()arguments: (...)bind: ƒ bind()call: ƒ call()caller: (...)constructor: ƒ Function()length: 0name: ""toString: ƒ toString()Symbol(Symbol.hasInstance): ƒ [Symbol.hasInstance]()get arguments: ƒ ()set arguments: ƒ ()get caller: ƒ ()set caller: ƒ ()[[FunctionLocation]]: [[Prototype]]: Objectconstructor: ƒ Object()hasOwnProperty: ƒ hasOwnProperty()isPrototypeOf: ƒ isPrototypeOf()propertyIsEnumerable: ƒ propertyIsEnumerable()toLocaleString: ƒ toLocaleString()toString: ƒ toString()valueOf: ƒ valueOf()__defineGetter__: ƒ __defineGetter__()__defineSetter__: ƒ __defineSetter__()__lookupGetter__: ƒ __lookupGetter__()__lookupSetter__: ƒ __lookupSetter__()__proto__: (...)get __proto__: ƒ __proto__()set __proto__: ƒ __proto__()[[Scopes]]: Scopes[0][[Scopes]]: Scopes[2]
+undefined
+Employee.prototype.disp.call(kim);
+VM1886:2 Id 1002 Name Kim Salary 33333
+undefined
+kim.disp();
+VM1886:2 Id 1002 Name Kim Salary 33333
+undefined
+kim.disp();
+VM1886:2 Id 1002 Name Kim Salary 33333
+undefined
