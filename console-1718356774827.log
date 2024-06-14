@@ -1,0 +1,316 @@
+// __proto__ vs prototype
+undefined
+function Employee(id ,name){
+    this.id = id;
+    this.name = name;
+}
+undefined
+typeof Employee;
+'function'
+typeof Employee.prototype;
+'object'
+console.dir(Employee);
+VM338:1 ƒ Employee(id ,name)arguments: nullcaller: nulllength: 2name: "Employee"prototype: constructor: ƒ Employee(id ,name)[[Prototype]]: Object[[FunctionLocation]]: VM214:1[[Prototype]]: ƒ ()[[Scopes]]: Scopes[1]
+undefined
+Employee.prototype;
+{}
+Employee.prototype.constructor;
+ƒ Employee(id ,name){
+    this.id = id;
+    this.name = name;
+}
+Employee.prototype.show= function(){
+    console.log(`Id ${this.id} Name ${this.name}`);
+}
+ƒ (){
+    console.log(`Id ${this.id} Name ${this.name}`);
+}
+Employee.prototype;
+{show: ƒ}show: ƒ ()constructor: ƒ Employee(id ,name)[[Prototype]]: Object
+var ram = new Employee(1001, "Ram");
+undefined
+ram.id;
+1001
+ram.show();
+VM561:2 Id 1001 Name Ram
+undefined
+ram.__proto__ == Employee.prototype;
+true
+ram.__proto__.show;
+ƒ (){
+    console.log(`Id ${this.id} Name ${this.name}`);
+}
+ram.__proto__.__proto__ == Object.prototype;
+true
+ram.__proto__.__proto__.__proto__;
+null
+ram.__proto__.disp = function(){
+    console.log('I am Disp');
+}
+ƒ (){
+    console.log('I am Disp');
+}
+Employee.prototype;
+{show: ƒ, disp: ƒ}
+var shyam = new Employee(1002, 'Shyam');
+undefined
+shyam.disp();
+VM1125:2 I am Disp
+undefined
+ram.disp();
+VM1125:2 I am Disp
+undefined
+// ES6 class
+undefined
+class Customer{
+    constructor(id=0 , name="", balance=0.0){
+        this.id = id;
+        this.name = name;
+        this.balance= balance;
+    }
+    show(){
+        console.log("Id "+id+" Name "+name +" balance "+balance);
+    }
+}
+undefined
+typeof Customer;
+'function'
+Customer.prototype.show;
+ƒ show(){
+        console.log("Id "+id+" Name "+name +" balance "+balance);
+    }
+var ram = new Customer(1001, 'Ram', 9999);
+undefined
+ram;
+Customer {id: 1001, name: 'Ram', balance: 9999}balance: 9999id: 1001name: "Ram"[[Prototype]]: Object
+ram.show();
+VM1561:8 Uncaught ReferenceError: id is not defined
+    at Customer.show (<anonymous>:8:27)
+    at <anonymous>:1:5
+show @ VM1561:8
+(anonymous) @ VM1849:1
+class Customer{
+    constructor(id=0 , name="", balance=0.0){
+        this.id = id;
+        this.name = name;
+        this.balance= balance;
+    }
+    show(){
+        console.log("Id "+this.id+" Name "+this.name +" balance "+this.balance);
+    }
+}
+undefined
+ram.show();
+VM1561:8 Uncaught ReferenceError: id is not defined
+    at Customer.show (<anonymous>:8:27)
+    at <anonymous>:1:5
+show @ VM1561:8
+(anonymous) @ VM1884:1
+var ram = new Customer(1001, 'Ram', 9999);
+undefined
+ram.show();
+VM1879:8 Id 1001 Name Ram balance 9999
+undefined
+Employee.count = 10001;
+10001
+class Customer{
+    constructor(id=0 , name="", balance=0.0){
+        this.id = id;
+        this.name = name;
+        this.balance= balance;
+    }
+    static disp(){
+        console.log("I am Disp ");
+    }
+    show(){
+        console.log("Id "+this.id+" Name "+this.name +" balance "+this.balance);
+    }
+}
+undefined
+Customer.disp();
+VM2000:8 I am Disp 
+undefined
+class Customer{
+    static age = 20;
+    constructor(id=0 , name="", balance=0.0){
+        this.id = id;
+        this.name = name;
+        this.balance= balance;
+    }
+    static disp(){
+        console.log("I am Disp ");
+    }
+    show(){
+        console.log("Id "+this.id+" Name "+this.name +" balance "+this.balance);
+    }
+}
+undefined
+Customer.age;
+20
+class Customer{
+    static age = 20;
+    #cardno=111;
+    constructor(id=0 , name="", balance=0.0){
+        this.id = id;
+        this.name = name;
+        this.balance= balance;
+    }
+    static disp(){
+        console.log("I am Disp ");
+    }
+    show(){
+        console.log("Id "+this.id+" Name "+this.name +" balance "+this.balance);
+    }
+}
+undefined
+class CreditCustomer extends Customer{
+    constructor(due=0){
+        super(1001, 'Ram', 9999);
+        this.due = due;
+    }
+    show(){
+        super.show();
+        console.log('Due is ', this.due);
+    }
+}
+
+undefined
+var ram = new CreditCustomer(100);
+undefined
+ram.show();
+VM2114:13 Id 1001 Name Ram balance 9999
+VM2385:8 Due is  100
+undefined
+CreditCustomer.prototype.__proto__;
+{show: ƒ}
+CreditCustomer.prototype.__proto__ == Customer.prototype;
+true
+Customer.prototype.__proto__ == Object.prototype;
+true
+Object.prototype.__proto__;
+null
+class CreditCustomer extends Customer{
+    constructor(due=0){
+        super(1001, 'Ram', 9999);
+        this.due = due;
+    }
+    disp(){
+        console.log('I am Disp');
+    }
+    show(){
+        this.disp();
+        //super.show();
+        console.log('Due is ', this.due);
+    }
+}
+
+undefined
+class Customer{
+    static age = 20;
+    #cardno=111;
+    constructor(id=0 , name="", balance=0.0){
+        this.id = id;
+        this.name = name;
+        this.balance= balance;
+    }
+    output(){
+        console.log('Customer output');
+    }
+    static disp2(){
+        console.log("I am Disp ");
+    }
+    show(){
+        console.log("Id "+this.id+" Name "+this.name +" balance "+this.balance);
+    }
+}
+class CreditCustomer extends Customer{
+    constructor(due=0){
+        super(1001, 'Ram', 9999);
+        this.due = due;
+    }
+    disp(){
+        console.log('I am Disp');
+    }
+    show(){
+        this.output();
+        this.disp();
+        //super.show();
+        console.log('Due is ', this.due);
+    }
+}
+
+undefined
+var ram = new Customer(1001, 'Ram', 999);
+undefined
+ram.show();
+VM2935:16 Id 1001 Name Ram balance 999
+undefined
+var ram = new CreditCustomer(100);
+undefined
+ram.show();
+VM2935:10 Customer output
+VM2935:25 I am Disp
+VM2935:31 Due is  100
+undefined
+class Customer{
+    static age = 20;
+    #cardno=111;
+    constructor(id=0 , name="", balance=0.0){
+        this.id = id;
+        this.name = name;
+        this.balance= balance;
+    }
+    output(){
+        console.log('Customer output');
+    }
+    static disp2(){
+        console.log("I am Disp ");
+    }
+    show(){
+        console.log("Id "+this.id+" Name "+this.name +" balance "+this.balance);
+    }
+}
+class CreditCustomer extends Customer{
+    constructor(due=0){
+        super(1001, 'Ram', 9999);
+        this.due = due;
+    }
+    disp(){
+        console.log('I am Disp');
+    }
+    show(){
+        super.output();
+        this.disp();
+        super.show();
+        console.log('Due is ', this.due);
+    }
+}
+
+undefined
+var ram = new CreditCustomer(100);
+undefined
+ram.show();
+VM3148:10 Customer output
+VM3148:25 I am Disp
+VM3148:16 Id 1001 Name Ram balance 9999
+VM3148:31 Due is  100
+undefined
+class A{
+    constructor(){
+        console.log('Constructor call ');
+    }
+    static{
+        console.log(' A Static Block Call');
+    }
+}
+VM3348:6  A Static Block Call
+undefined
+var d = new A();
+VM3348:3 Constructor call 
+undefined
+var d = new A();
+VM3348:3 Constructor call 
+undefined
+var d = new A();
+VM3348:3 Constructor call 
+undefined

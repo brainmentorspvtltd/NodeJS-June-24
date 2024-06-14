@@ -1,0 +1,35 @@
+var x = 10;
+undefined
+typeof x;
+'number'
+console.log('JS');
+VM351:1 JS
+undefined
+window;
+Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+document;
+#document (about:blank)
+process;
+VM427:1 Uncaught ReferenceError: process is not defined
+    at <anonymous>:1:1
+(anonymous) @ VM427:1
+module;
+VM443:1 Uncaught ReferenceError: module is not defined
+    at <anonymous>:1:1
+(anonymous) @ VM443:1
+require;
+VM459:1 Uncaught ReferenceError: require is not defined
+    at <anonymous>:1:1
+(anonymous) @ VM459:1
+setInterval
+ƒ setInterval() { [native code] }
+setTimeout
+ƒ setTimeout() { [native code] }
+window;
+Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+this;
+Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+window;
+Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+globalThis;
+Window {window: Window, self: Window, document: document, name: '', location: Location, …}
